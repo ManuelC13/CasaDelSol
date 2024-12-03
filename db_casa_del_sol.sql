@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 02-12-2024 a las 04:45:59
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Servidor: localhost:3306
+-- Tiempo de generación: 03-12-2024 a las 17:15:46
+-- Versión del servidor: 10.6.16-MariaDB-cll-lve
+-- Versión de PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_casa_del_sol`
+-- Base de datos: `zrfcbleh_casa_sol_DB`
 --
 
 -- --------------------------------------------------------
@@ -32,17 +32,6 @@ CREATE TABLE `categoria` (
   `Nombre` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `categoria`
---
-
-INSERT INTO `categoria` (`Id`, `Nombre`) VALUES
-('1', 'Joyería'),
-('2', 'Hogar'),
-('3', 'Textiles'),
-('4', 'Madera'),
-('5', 'Cerámica');
-
 -- --------------------------------------------------------
 
 --
@@ -51,7 +40,7 @@ INSERT INTO `categoria` (`Id`, `Nombre`) VALUES
 
 CREATE TABLE `compras` (
   `id` int(11) NOT NULL,
-  `usuario_id` int(11) DEFAULT NULL,
+  `usuario_id` varchar(8) DEFAULT NULL,
   `total` decimal(10,2) DEFAULT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -85,13 +74,6 @@ CREATE TABLE `direccion` (
   `Ciudad` varchar(50) NOT NULL,
   `UsuarioId` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `direccion`
---
-
-INSERT INTO `direccion` (`Id`, `Calle`, `CodigoPostal`, `NumeroCasa`, `Cruzamiento`, `Ciudad`, `UsuarioId`) VALUES
-(4, '12 a', 97610, 'SN', '35 y 37', 'Panabá', '167300ca');
 
 -- --------------------------------------------------------
 
@@ -129,13 +111,6 @@ CREATE TABLE `usuario` (
   `Rol` tinyint(1) NOT NULL,
   `FechaRegistro` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `usuario`
---
-
-INSERT INTO `usuario` (`Id`, `Nombre`, `Apellido`, `Genero`, `Email`, `Telefono`, `Edad`, `Contrasenia`, `Intereses`, `Rol`, `FechaRegistro`) VALUES
-('167300ca', 'Manuel Enrique', 'Cupul May', 'M', 'manuel@gmail.com', '9861004051', '18-24', '123', 'Decoración,Textiles,Madera', 1, '2024-11-10 01:30:21');
 
 --
 -- Índices para tablas volcadas
@@ -189,19 +164,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_compras`
 --
 ALTER TABLE `detalle_compras`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `direccion`
 --
 ALTER TABLE `direccion`
-  MODIFY `Id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id` int(8) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

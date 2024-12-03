@@ -24,7 +24,7 @@
         <hr>
 
         <!-- Formulario -->
-        <form id="formulario-registro" action="registroUsuario.php" method="post" onsubmit="return validarContraseña()" class="needs-validation">
+        <form id="formulario-registro" action="registroUsuario.php" method="post" onsubmit="return validarContrasena()" class="needs-validation">
 
             <!-- Nombre y Apellido -->
             <div class="row g-3 ">
@@ -189,7 +189,7 @@
 
             
             // Función para validar si las contraseñas coinciden
-            function validarContraseña() {
+            function validarContrasena() {
                 // Obtener el valor de la contraseña y la confirmación de contraseña
                 var contrasenia = document.forms["formulario-registro"]["contrasenia"].value;
                 var confirmacionDeContrasenia = document.forms["formulario-registro"]["confirmacionDeContrasenia"].value;
@@ -204,7 +204,7 @@
             }
 
             // Función para validar si las contraseñas de administrador coinciden
-            function validarContraseña() {
+            function validarContrasenaAdmin() {
                 // Obtener el valor de la contraseña y la confirmación de contraseña
                 var claveAdministrador = document.forms["formulario-registro"]["claveDeAdministrador"].value;
                 var confirmarClaveAdministrador = admin2024;
